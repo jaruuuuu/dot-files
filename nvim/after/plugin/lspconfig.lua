@@ -67,11 +67,6 @@ lsp['pyright'].setup(coq.lsp_ensure_capabilities({
     }
 }))
 
-lsp['tsserver'].setup(coq.lsp_ensure_capabilities({
-    on_attach = on_attach,
-    flags = lsp_flags,
-}))
-
 lsp['rust_analyzer'].setup(coq.lsp_ensure_capabilities({
     on_attach = on_attach,
     flags = lsp_flags,

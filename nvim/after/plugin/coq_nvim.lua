@@ -1,5 +1,4 @@
 vim.g.coq_settings = {
-    auto_start = 'shut-up',
     display = {
         ghost_text = {
             enabled = true
@@ -7,5 +6,5 @@ vim.g.coq_settings = {
     }
 }
 
-vim.cmd [[COQnow]]
+vim.cmd [[COQnow --shut-up]]
 

@@ -1,6 +1,3 @@
-require('plugins')
-require('keymap')
-require('remap')
 
 -- https://vonheikemen.github.io/devlog/tools/configuring-neovim-using-lua/
 --   - vim.o: general settings
@@ -43,17 +40,12 @@ vim.opt.linebreak = true
 -- https://learnvimscriptthehardway.stevelosh.com/chapters/06.html
 vim.g.mapleader = ' '
 
--- https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization
-
 vim.o.updatetime = 100
--- vim.cmd [[
---     autocmd CursorHold,CursorHoldI * lua
---         \ vim.diagnostic.open_float(nil, {focus=false})
--- ]]
 
 vim.cmd [[
   augroup jaru
     autocmd!
+    " trim trailing whitespace on save
     autocmd BufWrite * :%s/\s\+$//e
   augroup end
 ]]
@@ -65,3 +57,6 @@ vim.g.pyindent_continue = 'shiftwidth() * 1' -- Indent for a continuation line
 
 vim.g.rainbow_active = 1
 
+require('plugins')
+require('keymap')
+require('remap')

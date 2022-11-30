@@ -1,17 +1,9 @@
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
 
 -- Only required if you have packer configured as `opt`
-vim.cmd [[
-    packadd packer.nvim
-]]
+vim.cmd [[ packadd packer.nvim ]]
 
 -- run :PackerSync on :w
-vim.cmd [[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost ~/.config/nvim/lua/plugins.lua source <afile> | PackerSync
-  augroup end
-]]
 
 return require('packer').startup(
     function(use)
@@ -32,6 +24,15 @@ return require('packer').startup(
         use { 'nvim-lua/plenary.nvim' }
         use { 'nvim-telescope/telescope.nvim', tag = '0.1.x' }
         use { 'nvim-telescope/telescope-symbols.nvim', run = ':Telescope symbols' }
+        use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+        use {
+            'sudormrfbin/cheatsheet.nvim',
+            requires = {
+                { 'nvim-telescope/telescope.nvim' },
+                { 'nvim-lua/popup.nvim' },
+                { 'nvim-lua/plenary.nvim' },
+            }
+        }
 
         use { 'ms-jpq/coq_nvim', branch = 'coq' }
         use { 'ms-jpq/coq.artifacts', branch = 'artifacts' }
