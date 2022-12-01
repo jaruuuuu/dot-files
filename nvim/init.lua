@@ -60,3 +60,4 @@ vim.g.rainbow_active = 1
 require('plugins')
 require('keymap')
 require('remap')
+require('splits')
