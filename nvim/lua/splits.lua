@@ -1,31 +1,31 @@
-local keymap = require('keymap')
-local nnoremap = keymap.nnoremap -- normal mode
-local inoremap = keymap.inoremap -- insert mode
-local vnoremap = keymap.vnoremap -- visual+select modes
+local keymapper = require('keymapper')
+local nnoremap = keymapper.nnoremap -- normal mode
+local inoremap = keymapper.inoremap -- insert mode
+local vnoremap = keymapper.vnoremap -- visual+select modes
 
 -- open splits to right and below
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 
 -- close current split
-nnoremap('<C-q>', '<C-W>q')
-vnoremap('<C-q>', '<C-W>q')
+nnoremap('<Leader>vq', '<C-W>q')
+vnoremap('<Leader>vq', '<C-W>q')
 
 -- split window with new buffer and move to it
-nnoremap('<C-_>',  ':new<CR><C-Down>') -- horizontal
-vnoremap('<C-_>',  ':new<CR><C-Down>') -- horizontal
-nnoremap('<C-\\>', ':vnew<CR><C-Right>') -- vertical
-vnoremap('<C-\\>', ':vnew<CR><C-Right>') -- vertical
+nnoremap('<Leader>vh', ':new<CR><C-W>j:Telescope find_files<CR>')
+vnoremap('<Leader>vh', ':new<CR><C-W>j:Telescope find_files<CR>')
+nnoremap('<Leader>vv', ':vnew<CR><C-W>l:Telescope find_files<CR>')
+vnoremap('<Leader>vv', ':vnew<CR><C-W>l:Telescope find_files<CR>')
 
 -- move to other splits
-nnoremap('<C-Left>',  '<C-W><C-H>') -- to left
-vnoremap('<C-Left>',  '<C-W><C-H>') -- to left
-nnoremap('<C-Right>', '<C-W><C-L>') -- to right
-vnoremap('<C-Right>', '<C-W><C-L>') -- to right
-nnoremap('<C-Up>',    '<C-W><C-K>') -- to above
-vnoremap('<C-Up>',    '<C-W><C-K>') -- to above
-nnoremap('<C-Down>',  '<C-W><C-J>') -- to below
-vnoremap('<C-Down>',  '<C-W><C-J>') -- to below
+nnoremap('<Leader>v<Left>',  '<C-W>h')
+vnoremap('<Leader>v<Left>',  '<C-W>h')
+nnoremap('<Leader>v<Right>', '<C-W>l')
+vnoremap('<Leader>v<Right>', '<C-W>l')
+nnoremap('<Leader>v<Up>',    '<C-W>k')
+vnoremap('<Leader>v<Up>',    '<C-W>k')
+nnoremap('<Leader>v<Down>',  '<C-W>j')
+vnoremap('<Leader>v<Down>',  '<C-W>j')
 
 -- some notable bindings
 -- <C-W> _ -- Max out the height of the current split

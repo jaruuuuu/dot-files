@@ -2,31 +2,30 @@
 -- https://vim.fandom.com/wiki/Mapping_keys_in_Vim_-_Tutorial_(Part_2)
 -- https://vim.fandom.com/wiki/Mapping_keys_in_Vim_-_Tutorial_(Part_3)
 
-local keymap = require('keymap')
+local keymapper = require('keymapper')
+local nnoremap = keymapper.nnoremap -- normal modes
+local inoremap = keymapper.inoremap -- insert mode
+local vnoremap = keymapper.vnoremap -- visual+select modes
 
-local nmap = keymap.nmap -- normal mode
-local imap = keymap.imap -- insert mode
-local vmap = keymap.vmap -- visual+select modes
-local smap = keymap.smap -- select mode
-local xmap = keymap.xmap -- visual mode
-local cmap = keymap.cmap -- command-line mode
-local omap = keymap.omap -- operator pernding mode
+vim.g.mapleader = ' '
 
-local nnoremap = keymap.nnoremap -- normal mode
-local inoremap = keymap.inoremap -- insert mode
-local vnoremap = keymap.vnoremap -- visual+select modes
-local snoremap = keymap.snoremap -- select mode
-local xnoremap = keymap.xnoremap -- visual mode
-local cnoremap = keymap.cnoremap -- command-line mode
-local onoremap = keymap.onoremap -- operator pernding mode
+-- move around in wrapped lines
+nnoremap('<Up>', 'gk')
+vnoremap('<Up>', 'gk')
+nnoremap('<Down>', 'gj')
+vnoremap('<Down>', 'gj')
 
-nnoremap('<Leader>ff', ':Telescope find_files<CR>')
-nnoremap('<Leader>fg', ':Telescope live_grep<CR>')
-nnoremap('<Leader>fb', ':Telescope buffers<CR>')
-nnoremap('<Leader>fh', ':Telescope help_tags<CR>')
+-- keep register unchanged when pasting over selection
+vnoremap('p', '"_dp')
+vnoremap('P', '"_dP')
 
--- in visual mode, paste over selection without changing register
-xnoremap('<Leader>p', '\"_dp')
-xnoremap('<Leader>P', '\"_dP')
+-- coq
+inoremap('<Esc>',   [[pumvisible() ? "<C-E><Esc>" : "<Esc>"]], { expr = true })
+inoremap('<C-C>',   [[pumvisible() ? "<C-E><C-C>" : "<C-C>"]], { expr = true })
+inoremap('<Tab>',   [[pumvisible() ? "<C-N>" : "<Tab>"]],      { expr = true })
+inoremap('<S-Tab>', [[pumvisible() ? "<C-P>" : "<BS>"]],       { expr = true })
+
+-- :w with :W too
+vim.cmd [[ command W w ]]
 
 

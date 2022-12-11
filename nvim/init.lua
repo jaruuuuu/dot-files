@@ -33,12 +33,9 @@ vim.opt.scrolloff = 2 -- keep so many lines above/below the cursor when scrollin
 vim.opt.whichwrap = vim.o.whichwrap .. ',<,>,[,]'
 
 vim.opt.breakindent = true
-vim.opt.breakindentopt = 'shift:4,min:40,sbr'
+vim.opt.breakindentopt = 'shift:0,min:40,sbr'
 vim.opt.showbreak = '...'
 vim.opt.linebreak = true
-
--- https://learnvimscriptthehardway.stevelosh.com/chapters/06.html
-vim.g.mapleader = ' '
 
 vim.o.updatetime = 100
 
@@ -58,6 +55,6 @@ vim.g.pyindent_continue = 'shiftwidth() * 1' -- Indent for a continuation line
 vim.g.rainbow_active = 1
 
 require('plugins')
-require('keymap')
+require('keymapper')
 require('remap')
 require('splits')
