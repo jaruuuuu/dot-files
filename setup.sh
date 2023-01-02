@@ -29,7 +29,7 @@ ln -s $REPO/tmux/tmux.conf ~/.tmux.conf
 # zsh stuff
 #===============================================================================
 
-rm -rf ~/.zprofile ~/.zshrc ~/.oh-my-zsh/custom/themes
+rm -rf ~/.zprofile ~/.zshrc ~/.oh-my-zsh/custom/*
 
 ZSH= sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
