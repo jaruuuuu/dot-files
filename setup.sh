@@ -31,7 +31,7 @@ ln -s $REPO/tmux/tmux.conf ~/.tmux.conf
 
 rm -rf ~/.zprofile ~/.zshrc ~/.oh-my-zsh/custom/themes
 
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+ZSH= sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 git clone https://github.com/zsh-users/zsh-history-substring-search ~/.oh-my-zsh/custom/plugins/zsh-history-substring-search
 
