@@ -29,11 +29,13 @@ ln -s $REPO/tmux/tmux.conf ~/.tmux.conf
 # zsh stuff
 #===============================================================================
 
-rm -rf ~/.zprofile ~/.zshrc ~/.oh-my-zsh/custom/*
+rm -rf ~/.oh-my-zsh
 
-ZSH=sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+ZSH= sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 git clone https://github.com/zsh-users/zsh-history-substring-search ~/.oh-my-zsh/custom/plugins/zsh-history-substring-search
+
+rm -rf ~/.zprofile ~/.zshrc ~/.oh-my-zsh/custom/themes
 
 ln -s $REPO/zsh/themes ~/.oh-my-zsh/custom/themes
 ln -s $REPO/zsh/zprofile.conf ~/.zprofile
