@@ -1,0 +1,29 @@
+
+key_bindings:
+  - { key: Right, mods: Option|Shift, chars: "\x05" } # <C-e> (end of line)
+  - { key: Left, mods: Option|Shift, chars: "\x02\x01" } # <C-a><C-a> (beginning of line)
+
+  - { key: R, mods: Command, command: { program: "/opt/homebrew/bin/tmux", args: ["source-file", "~/.tmux.conf"] } }
+  - { key: T, mods: Command, command: { program: "/opt/homebrew/bin/tmux", args: ["new-window", "-c", "~"] } }
+  - { key: W, mods: Command, command: { program: "/opt/homebrew/bin/tmux", args: ["kill-pane"] } }
+  - { key: W, mods: Command|Shift, command: { program: "/opt/homebrew/bin/tmux", args: ["kill-window"] } }
+  - { key: D, mods: Command, command: { program: "/opt/homebrew/bin/tmux", args: ["detach"] } }
+  - { key: P, mods: Command, command: { program: "/opt/homebrew/bin/tmux", args: ["select-window", "-t", "!"] } }
+  - { key: Backslash, mods: Command, command: { program: "/opt/homebrew/bin/tmux", args: ["split-window", "-h", "-c", "#{pane_current_path}"] } }
+  - { key: Minus, mods: Command, command: { program: "/opt/homebrew/bin/tmux", args: ["split-window", "-v", "-c", "#{pane_current_path}"] } }
+
+  # Use `<cmd + 1~9>` to switch tmux window
+  - { key: Key1, mods: Command, command: { program: "/opt/homebrew/bin/tmux", args: ["select-window", "-t 1"] } }
+  - { key: Key2, mods: Command, command: { program: "/opt/homebrew/bin/tmux", args: ["select-window", "-t 2"] } }
+  - { key: Key3, mods: Command, command: { program: "/opt/homebrew/bin/tmux", args: ["select-window", "-t 3"] } }
+  - { key: Key4, mods: Command, command: { program: "/opt/homebrew/bin/tmux", args: ["select-window", "-t 4"] } }
+  - { key: Key5, mods: Command, command: { program: "/opt/homebrew/bin/tmux", args: ["select-window", "-t 5"] } }
+  - { key: Key6, mods: Command, command: { program: "/opt/homebrew/bin/tmux", args: ["select-window", "-t 6"] } }
+  - { key: Key7, mods: Command, command: { program: "/opt/homebrew/bin/tmux", args: ["select-window", "-t 7"] } }
+  - { key: Key8, mods: Command, command: { program: "/opt/homebrew/bin/tmux", args: ["select-window", "-t 8"] } }
+  - { key: Key9, mods: Command, command: { program: "/opt/homebrew/bin/tmux", args: ["select-window", "-t 9"] } }
+
+  - { key: Up, mods: Command, command: { program: "/opt/homebrew/bin/tmux", args: ["select-pane", "-U"] } }
+  - { key: Down, mods: Command, command: { program: "/opt/homebrew/bin/tmux", args: ["select-pane", "-D"] } }
+  - { key: Right, mods: Command, command: { program: "/opt/homebrew/bin/tmux", args: ["select-pane", "-R"] } }
+  - { key: Left, mods: Command, command: { program: "/opt/homebrew/bin/tmux", args: ["select-pane", "-L"] } }
